@@ -10,7 +10,12 @@ defmodule GumHub.GithubTest do
           Fixtures.GitHub.successfully_added_collaborator()
       end)
 
-      assert :ok == GitHub.add_collaboratior_with_pull_permission("octocat")
+      assert :ok ==
+               GitHub.add_collaboratior_with_pull_permission(
+                 "github_owner",
+                 "private-repo",
+                 "octocat"
+               )
     end
   end
 end
