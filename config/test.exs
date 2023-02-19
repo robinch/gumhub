@@ -1,5 +1,10 @@
 import Config
 
+config :gumhub,
+  github_api_token: "GITHUB_API_TOKEN_123",
+  github_private_repo_owner: "GITHUB_REPO_OWNER_123",
+  github_private_repo_name: "GITHUB_REPO_NAME_123"
+
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :gumhub, GumHubWeb.Endpoint,

@@ -20,6 +20,11 @@ if System.get_env("PHX_SERVER") do
   config :gumhub, GumHubWeb.Endpoint, server: true
 end
 
+config :gumhub,
+  github_api_token: System.get_env("GITHUB_API_TOKEN"),
+  github_private_repo_owner: System.get_env("GITHUB_PRIVATE_REPO_OWNER"),
+  github_private_repo_name: System.get_env("GITHUB_PRIVATE_REPO_NAME")
+
 if config_env() == :prod do
   # The secret key base is used to sign/encrypt cookies and other secrets.
   # A default value is used in config/dev.exs and config/test.exs but you
