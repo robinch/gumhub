@@ -1,4 +1,4 @@
-defmodule GumHub.GumroadClient do
+defmodule GumHub.Gumroad.Client do
   use Tesla
 
   require Logger

@@ -1,9 +1,9 @@
 defmodule GumHub.Gumroad do
-  alias GumHub.GumroadClient
+  alias GumHub.Gumroad
 
   def verify_license(product_id, license) do
     with {:ok, %{status: 200, body: %{"success" => true, "uses" => 0}}} <-
-           GumroadClient.verify_license(product_id, license) do
+           Gumroad.Client.verify_license(product_id, license) do
       :ok
     else
       {:ok, %{status: 200, body: %{"success" => true, "uses" => uses}}} when uses > 0 ->
