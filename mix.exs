@@ -47,7 +47,8 @@ defmodule GumHub.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:tesla, "~> 1.5"},
-      {:hackney, "~> 1.18"}
+      {:hackney, "~> 1.18"},
+      {:hammox, "~> 0.7.0"}
     ]
   end
 
