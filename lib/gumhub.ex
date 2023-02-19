@@ -1,7 +1,4 @@
 defmodule GumHub do
-  alias GumHub.GitHub
-  alias GumHub.Gumroad
-
   @callback give_verified_user_github_repo_access(
               license :: binary(),
               github_username :: binary()

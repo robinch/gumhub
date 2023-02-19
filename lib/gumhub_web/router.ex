@@ -15,9 +15,7 @@ defmodule GumHubWeb.Router do
   end
 
   scope "/", GumHubWeb do
-    pipe_through :browser
-
-    # get "/", PageController, :home
+    pipe_through :api
 
     post "/gumroad/ping", GumroadController, :ping
   end
