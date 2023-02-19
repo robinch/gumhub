@@ -8,7 +8,8 @@
 import Config
 
 config :gumhub,
-  namespace: GumHub
+  namespace: GumHub,
+  gumroad_product_id: System.get_env("GUMROAD_PRODUCT_ID")
 
 # Configures the endpoint
 config :gumhub, GumHubWeb.Endpoint,
@@ -49,6 +50,8 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+config :tesla, :adapter, Tesla.Adapter.Hackney
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
