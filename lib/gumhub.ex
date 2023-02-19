@@ -2,6 +2,10 @@ defmodule GumHub do
   alias GumHub.GitHub
   alias GumHub.Gumroad
 
+  @callback give_verified_user_github_repo_access(
+              license :: binary(),
+              github_username :: binary()
+            ) :: :ok | {:error, :too_many_uses | :license_not_found}
   def give_verified_user_github_repo_access(license, github_username) do
     with :ok <- gumroad().verify_license(product_id(), license),
          :ok <-

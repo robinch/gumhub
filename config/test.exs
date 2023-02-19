@@ -5,6 +5,7 @@ config :gumhub,
   github_api_token: "github_api_token_123",
   github_private_repo_owner: "github_repo_owner_123",
   github_private_repo_name: "github_repo_name_123",
+  gumhub: MockGumHub,
   gumroad: MockGumroad,
   gumroad_product_id: "product_id_123"
 
