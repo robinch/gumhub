@@ -4,6 +4,15 @@ This is an integration between Gumroad and Github that will give users that purc
 
 Inspired by this article: https://makerkit.dev/blog/tutorials/sell-code-gumroad-github
 
+# Environment Variables
+
+The following environment variables needs to be set
+
+- GUMROAD_PRODUCT_ID
+- GITHUB_API_TOKEN
+- GITHUB_PRIVATE_REPO_OWNER
+- GITHUB_PRIVATE_REPO_NAME
+
 ## Running the application locally
 
 To start your Phoenix server:
