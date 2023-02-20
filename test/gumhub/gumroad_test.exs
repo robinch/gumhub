@@ -7,7 +7,7 @@ defmodule GumHub.GumroadTest do
   test "success: verified" do
     Tesla.Mock.mock(fn
       %{method: :post} ->
-        Fixtures.Gumroad.successful_verify_license(0)
+        Fixtures.Gumroad.successful_verify_license(1)
     end)
 
     assert :ok == Gumroad.verify_license("product_id", "license_id")
