@@ -1,8 +1,10 @@
 # GumHub
 
-This is an integration between Gumroad and Github that will give users that purchases your product on Gumroad access to a private repository on Github.
+GumHub is an integration between Gumroad and Github that will give users that purchases your product on Gumroad access to a private repository on Github that you own.
 
-Inspired by this article: https://makerkit.dev/blog/tutorials/sell-code-gumroad-github
+You can test the integration here: https://robinch.gumroad.com/l/gnudi
+
+This project was inspired by this article: https://makerkit.dev/blog/tutorials/sell-code-gumroad-github
 
 # Environment Variables
 
