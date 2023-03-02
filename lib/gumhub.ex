@@ -1,10 +1,14 @@
 defmodule GumHub do
+  alias GumHub.Gumroad
+  require Logger
+
   @callback give_verified_user_github_repo_access(
-              license :: binary(),
+              license_code :: binary(),
               github_username :: binary()
-            ) :: :ok | {:error, :too_many_uses | :license_not_found}
-  def give_verified_user_github_repo_access(license, github_username) do
-    with :ok <- gumroad().verify_license(product_id(), license),
+            ) :: :ok | {:error, :too_many_uses}
+  def give_verified_user_github_repo_access(license_code, github_username) do
+    with {:ok, %Gumroad.License{uses: uses}} when uses <= 1 <-
+           gumroad().verify_license(product_id(), license_code),
          :ok <-
            github().add_collaboratior_with_pull_permission(
              repo_owner(),
@@ -12,6 +16,10 @@ defmodule GumHub do
              github_username
            ) do
       :ok
+    else
+      {:ok, %Gumroad.License{uses: uses}} when uses > 1 ->
+        Logger.error("Too many uses (#{uses}) on license code (#{license_code})")
+        {:error, :too_many_uses}
     end
   end
 

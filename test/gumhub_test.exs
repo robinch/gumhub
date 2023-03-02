@@ -1,7 +1,8 @@
 defmodule GumHubTest do
   use ExUnit.Case
-
+  import ExUnit.CaptureLog
   import Hammox
+  alias GumHub.Gumroad
 
   setup :verify_on_exit!
 
@@ -11,7 +12,7 @@ defmodule GumHubTest do
       assert product_id == "product_id_123"
       assert license == "license_123"
 
-      :ok
+      {:ok, %Gumroad.License{uses: 1}}
     end)
 
     MockGitHub
@@ -27,5 +28,23 @@ defmodule GumHubTest do
 
     assert :ok ==
              GumHub.give_verified_user_github_repo_access("license_123", "github_username_123")
+  end
+
+  test "error: too many uses" do
+    MockGumroad
+    |> expect(:verify_license, fn _product_id, _license ->
+      {:ok, %Gumroad.License{uses: 2}}
+    end)
+
+    log =
+      capture_log(fn ->
+        assert {:error, :too_many_uses} ==
+                 GumHub.give_verified_user_github_repo_access(
+                   "license_123",
+                   "github_username_123"
+                 )
+      end)
+
+    assert log =~ "[error] Too many uses (2) on license code (license_123)"
   end
 end
