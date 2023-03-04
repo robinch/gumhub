@@ -8,12 +8,17 @@ This project was inspired by this article: https://makerkit.dev/blog/tutorials/s
 
 # Environment Variables
 
-The following environment variables needs to be set
+The following environment variable need to be set
 
-- GUMROAD_PRODUCT_ID
-- GITHUB_API_TOKEN
-- GITHUB_PRIVATE_REPO_OWNER
-- GITHUB_PRIVATE_REPO_NAME
+`GUMROAD_TO_GITHUB_MAPPINGS`
+
+The value is a list of mappings.
+
+`<GUMROAD_PRODUCT_ID_1>:<GITHUB_REPO_OWNER_1>:<GITHUB_REPO_NAME_1>:<GITHUB_TOKEN_1>,<GUMROAD_PRODUCT_ID_2>:<GITHUB_REPO_OWNER_2>:<GITHUB_REPO_NAME_2>:<GITHUB_TOKEN_2>`
+
+### Example
+
+`GUMROAD_TO_GITHUB_MAPPINGS=SDKLjgjlsjfld==:robinch:gumroad-private:git_token_123,...another mapping
 
 ## Running the application locally
 
