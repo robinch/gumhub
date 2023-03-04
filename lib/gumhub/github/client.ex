@@ -1,13 +1,16 @@
 defmodule GumHub.GitHub.Client do
-  use Tesla
+  @middleware [
+    {Tesla.Middleware.BaseUrl, "https://api.github.com"},
+    Tesla.Middleware.JSON,
+    Tesla.Middleware.Logger
+  ]
 
-  plug Tesla.Middleware.BaseUrl, "https://api.github.com"
-  plug Tesla.Middleware.JSON
-  plug Tesla.Middleware.BearerAuth, token: Application.get_env(:gumhub, :github_api_token)
-  plug Tesla.Middleware.Logger
+  def add_collaborator(repo_owner, repo_name, github_username_to_add, permission, token) do
+    middleware = [{Tesla.Middleware.BearerAuth, token: token} | @middleware]
+    client = Tesla.client(middleware)
 
-  def add_collaborator(repo_owner, repo_name, github_username_to_add, permission) do
-    put(
+    Tesla.put(
+      client,
       "/repos/#{repo_owner}/#{repo_name}/collaborators/#{github_username_to_add}",
       %{permission: permission}
     )

@@ -9,15 +9,15 @@ defmodule GumHub.Mappings do
   end
 
   defp mappings() do
-    Application.get_env(:gumhub, :gumroad_github_mappings)
+    Application.get_env(:gumhub, :gumroad_to_github_mappings)
     |> Enum.map(fn mapping ->
       [gumroad_product_id, github_owner, github_repo, github_token] = String.split(mapping, ":")
 
       {gumroad_product_id,
        %GitHub.Config{
-         github_owner: github_owner,
-         github_repo: github_repo,
-         github_token: github_token
+         repo_owner: github_owner,
+         repo_name: github_repo,
+         token: github_token
        }}
     end)
     |> Enum.into(%{})

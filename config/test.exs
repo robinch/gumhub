@@ -2,15 +2,11 @@ import Config
 
 config :gumhub,
   github: MockGitHub,
-  gumroad_github_mappings:
-    "gumroad_product_id_1:github_owner_1:github_repo_1:github_token_1,gumroad_product_id_2:github_owner_2:github_repo_2:github_token_2"
-    |> String.split(","),
-  github_api_token: "github_api_token_123",
-  github_private_repo_owner: "github_repo_owner_123",
-  github_private_repo_name: "github_repo_name_123",
   gumhub: MockGumHub,
   gumroad: MockGumroad,
-  gumroad_product_id: "product_id_123"
+  gumroad_to_github_mappings:
+    "gumroad_product_id_1:github_owner_1:github_repo_1:github_token_1,gumroad_product_id_2:github_owner_2:github_repo_2:github_token_2"
+    |> String.split(",")
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.

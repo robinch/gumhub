@@ -3,8 +3,12 @@ defmodule GumHubWeb.GumroadController do
 
   require Logger
 
-  def ping(conn, %{"license_key" => license_key, "GitHub Username" => github_username}) do
-    :ok = gumhub().give_verified_user_github_repo_access(license_key, github_username)
+  def ping(conn, %{
+        "product_id" => product_id,
+        "license_key" => license_key,
+        "GitHub Username" => github_username
+      }) do
+    :ok = gumhub().give_verified_user_github_repo_access(product_id, license_key, github_username)
     send_resp(conn, 200, "ok")
   end
 

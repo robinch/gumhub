@@ -3,22 +3,22 @@ defmodule GumHub.MappingsTest do
   alias GumHub.Mappings
   alias GumHub.GitHub
 
-  describe "get_gihub_config/1" do
+  describe "gihub_config/1" do
     test "can fetch multi different GitHub configs" do
       assert Mappings.get_github_config("gumroad_product_id_1") ==
                {:ok,
                 %GitHub.Config{
-                  github_owner: "github_owner_1",
-                  github_repo: "github_repo_1",
-                  github_token: "github_token_1"
+                  repo_owner: "github_owner_1",
+                  repo_name: "github_repo_1",
+                  token: "github_token_1"
                 }}
 
       assert Mappings.get_github_config("gumroad_product_id_2") ==
                {:ok,
                 %GitHub.Config{
-                  github_owner: "github_owner_2",
-                  github_repo: "github_repo_2",
-                  github_token: "github_token_2"
+                  repo_owner: "github_owner_2",
+                  repo_name: "github_repo_2",
+                  token: "github_token_2"
                 }}
     end
 

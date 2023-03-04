@@ -9,10 +9,8 @@ import Config
 
 config :gumhub,
   namespace: GumHub,
-  gumroad_product_id: System.get_env("GUMROAD_PRODUCT_ID"),
-  github_api_token: System.get_env("GITHUB_API_TOKEN"),
-  github_private_repo_owner: System.get_env("GITHUB_PRIVATE_REPO_OWNER"),
-  github_private_repo_name: System.get_env("GITHUB_PRIVATE_REPO_NAME")
+  gumroad_to_github_mappings:
+    System.get_env("GUMROAD_TO_GITHUB_MAPPINGS", "") |> String.split(",")
 
 # Configures the endpoint
 config :gumhub, GumHubWeb.Endpoint,

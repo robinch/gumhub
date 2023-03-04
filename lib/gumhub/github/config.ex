@@ -1,3 +1,5 @@
 defmodule GumHub.GitHub.Config do
-  defstruct [:github_owner, :github_repo, :github_token]
+  defstruct [:repo_owner, :repo_name, :token]
+
+  @type t :: %__MODULE__{repo_owner: binary | nil, repo_name: binary | nil, token: binary | nil}
 end

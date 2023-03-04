@@ -7,7 +7,10 @@ defmodule GumHubWeb.GumroadControllerTest do
 
   test "POST /gumroad/ping", %{conn: conn} do
     MockGumHub
-    |> expect(:give_verified_user_github_repo_access, fn license_key, github_username ->
+    |> expect(:give_verified_user_github_repo_access, fn product_id,
+                                                         license_key,
+                                                         github_username ->
+      assert product_id == "product_id_123"
       assert license_key == "license_key_123"
       assert github_username == "github_username_123"
 
@@ -37,7 +40,7 @@ defmodule GumHubWeb.GumroadControllerTest do
       "order_number" => "134567",
       "permalink" => "gnudi",
       "price" => "0",
-      "product_id" => "porduct_id_123",
+      "product_id" => "product_id_123",
       "product_name" => "Test Product",
       "product_permalink" => "https://...",
       "purchaser_id" => "1234567",
