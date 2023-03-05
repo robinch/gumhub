@@ -18,7 +18,7 @@ The value is a list of mappings.
 
 ### Example
 
-`GUMROAD_TO_GITHUB_MAPPINGS=SDKLjgjlsjfld==:robinch:gumroad-private:git_token_123,...another mapping
+`GUMROAD_TO_GITHUB_MAPPINGS=SDKLjgjlsjfld==:robinch:gumroad-private:git_token_123,...another mapping`
 
 ## Running the application locally
 
